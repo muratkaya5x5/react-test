@@ -1,18 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+ import TestYasamDongusu from "./componenets/TestYasamDongusu"
+ 
 function App() {
+  const [show, setShow] = useState(false);
   return (
-   
-    <div className="App">
-    <h3>{process.env.NODE_ENV} </h3>
-    {process.env.NODE_ENV==='production' && (
-      <>     
-     <p> {process.env.REACT_APP_API_URL}  </p>   
-     </>
-    )}
-    <img src={logo} className="App-logo" alt="logo" />
-    </div>
+    <>
+      <button onClick={() => setShow((show) => !show)}>
+        {show ? "Gizle" : "Göster"}
+      </button>
+      {show && <TestYasamDongusu>Sonraki Konu</TestYasamDongusu>}
+    </>
   );
 }
 
